@@ -14,6 +14,7 @@ public:
     virtual void stop();
     void setAmplitude(float amplitude);
     void setFrequence(int frequence);
+    void makeSomeNoise();
 private:
     QAudioFormat audioFormat;
     Sinus sinus;

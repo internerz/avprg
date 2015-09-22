@@ -25,6 +25,8 @@ private slots:
 
     void on_horizontalSlider_valueChanged(int value);
 
+    void on_noise_clicked();
+
 private:
     void initializeAudio();
     Ui::MainWindow *ui;

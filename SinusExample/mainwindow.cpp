@@ -33,3 +33,8 @@ void MainWindow::on_horizontalSlider_valueChanged(int value)
 {
     oscillatorSource.setFrequence(value);
 }
+
+void MainWindow::on_noise_clicked()
+{
+
+}
