@@ -10,11 +10,22 @@ OscillatorSource::OscillatorSource()
     audioFormat.setSampleRate(44100);
 }
 
-
 void OscillatorSource::start(){
 }
 const QAudioFormat& OscillatorSource::format() const{
     return audioFormat;
+}
+
+void OscillatorSource::setAmplitude(float amplitude) {
+    sinus.setAmplitude(amplitude);
+}
+
+void OscillatorSource::setFrequence(int frequence) {
+    sinus.setFrequence(frequence);
+}
+
+void OscillatorSource::makeSomeNoise() {
+
 }
 
 qint64 OscillatorSource::read(float** buffer, qint64 numFrames){
@@ -23,9 +34,9 @@ qint64 OscillatorSource::read(float** buffer, qint64 numFrames){
         buffer[0][i] = sinus.getValue();
     }
     // copy to other channels
-    for(int c = 0; c < audioFormat.channelCount(); c++){
+    for(int c = 1; c < audioFormat.channelCount(); c++){
         for(int i = 0; i < numFrames; i++){
-            buffer[c][i] = buffer[c][i];
+            buffer[c][i] = buffer[0][i];
         }
     }
     return numFrames;

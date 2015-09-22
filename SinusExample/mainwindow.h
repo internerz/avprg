@@ -17,7 +17,13 @@ class MainWindow : public QMainWindow
 
 public:
     explicit MainWindow(QWidget *parent = 0);
+    OscillatorSource getOscillatorSource();
     ~MainWindow();
+
+private slots:
+    void on_volumeSlider_valueChanged(int value);
+
+    void on_horizontalSlider_valueChanged(int value);
 
 private:
     void initializeAudio();
